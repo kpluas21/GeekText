@@ -6,6 +6,10 @@ A RESTful API for a fictional online bookstore, GeekText using Django and writte
     ```bash
         $ python manage.py runserver
     ```
+    If your terminal doesn't recognize python for whatever reason use python3 instead
+    ```bash
+        $ python3 manage.py runserver
+    ```
     You can now access the file api service on your browser by using
     ```
         http://localhost:8000/auth/
