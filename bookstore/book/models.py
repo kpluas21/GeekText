@@ -5,6 +5,7 @@ class Book(models.Model):
     title  = models.CharField(max_length=200,null=True)
     author = models.CharField(max_length=200,null=True)
     year   = models.PositiveSmallIntegerField(null=True)
+    genre  = models.CharField(max_length=200, null=True)
     isbn   = models.CharField(max_length=13, unique=True)
     
     def __str__(self):
