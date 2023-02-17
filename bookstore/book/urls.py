@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.getBook),
     path('get/', views.getBook),
     path('post/', views.postBook),
+    path('bestsellers/', views.postTopSellers)
 ]

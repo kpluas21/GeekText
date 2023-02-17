@@ -17,4 +17,12 @@ def postBook(request):
         serializer.save()
     return Response(serializer.data)
 
+#Lists the top 10 books that have the most copies sold
+@api_view(['GET'])
+def postTopSellers(request):
+    book = Book.objects.order_by('copiesSold')
+    serializer = BookSerializer(book , many=True)
+    return Response(serializer.data)
+
+
 # Create your views here.
