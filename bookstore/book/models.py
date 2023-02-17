@@ -13,12 +13,12 @@ def default_title():
 
 
 class Book(models.Model):
-    title  = models.CharField(max_length=200, default=default_title(), blank=False)
-    author = models.CharField(max_length=200, default=default_author(), blank=False)
-    year   = models.PositiveSmallIntegerField(null=True)
-    genre  = models.CharField(max_length=200, default=default_genre, blank=False)
-    isbn   = models.CharField(max_length=13, unique=True, blank=False)
-    copiesSold=models.PositiveSmallIntegerField(null=True, default="0")
+    title  = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+    year   = models.PositiveSmallIntegerField()
+    genre  = models.CharField(max_length=200)
+    isbn   = models.IntegerField()
+    copiesSold=models.PositiveSmallIntegerField()
     
 
     def __str__(self):

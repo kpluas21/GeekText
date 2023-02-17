@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.getBook),
     path('get/', views.getBook),
     path('post/', views.postBook),
-    path('bestsellers/', views.postTopSellers)
+    path('bestsellers/', views.postTopSellers),
+    # path('addbook/', views.addbook, name='addbook')
 ]
