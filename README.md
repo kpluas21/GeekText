@@ -1,6 +1,8 @@
 # GeekText
 A RESTful API for a fictional online bookstore, GeekText using Django and written in Python
 
+Make sure you have python , pip , and django already installed. I won't go over that here as there are plenty of resources that teach that. 
+
 * #### Run It
     Fire up the server using this one simple command:
     ```bash
