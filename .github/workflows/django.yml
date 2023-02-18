@@ -27,6 +27,8 @@ jobs:
         pip freeze > requirements.txt
         pip install -r requirements.txt
         pip install django
+        pip install djangorestframework
+
     - name: Run Tests
       run: |
         python3 bookstore/manage.py test
