@@ -23,3 +23,6 @@ Make sure you have python , pip , and django already installed. I won't go over 
     ```
     As always, use python3 is python isn't recognized.
     
+
+    The idea behind creating different apps is to separate the logic between several different unrelated applications. Book Browsing and sorting
+    shouldn't be with the logic behind a Shopping cart, etc.
