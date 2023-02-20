@@ -15,3 +15,11 @@ Make sure you have python , pip , and django already installed. I won't go over 
     You can now access the file api service on your browser by using
     ```
         http://localhost:8000/
+    ```
+    
+    When you want to create a new app to work on a new feature, use this command
+    ```
+        python manage.py startapp name_of_your_app
+    ```
+    As always, use python3 is python isn't recognized.
+    
