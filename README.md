@@ -14,4 +14,4 @@ Make sure you have python , pip , and django already installed. I won't go over 
     ```
     You can now access the file api service on your browser by using
     ```
-        http://localhost:8000/auth/
+        http://localhost:8000/
