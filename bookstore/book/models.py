@@ -29,13 +29,13 @@ class Book(models.Model):
         return str(self.title)
 
 #The customer class however someone else might be doing this one?
-class Customer(models.Model):
-    userName = models.OneToOneField(User, null = True, on_delete=models.CASCADE)
-    email    = models.EmailField(null = True)
-    homeAddr = models.CharField(max_length = 200, null=True)
-    name     = models.CharField(max_length = 200, null=True)
+# class Customer(models.Model):
+#     userName = models.OneToOneField(User, null = True, on_delete=models.CASCADE)
+#     email    = models.EmailField(null = True)
+#     homeAddr = models.CharField(max_length = 200, null=True)
+#     name     = models.CharField(max_length = 200, null=True)
 
-    def __str__(self):
-        return str(self.userName)
+#     def __str__(self):
+#         return str(self.userName)
 
 
