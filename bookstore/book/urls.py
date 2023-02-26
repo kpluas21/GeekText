@@ -8,5 +8,6 @@ urlpatterns = [
     path('get/', views.getBook),
     path('post/', views.postBook),
     path('bestsellers/', views.postTopSellers),
+    path('searchbygenre/<str:genreSearch>', views.postBookByGenre),
     # path('addbook/', views.addbook, name='addbook')
 ]
