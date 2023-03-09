@@ -13,6 +13,14 @@ def default_title():
 
 
 class Book(models.Model):
+    RATING_CHOICES = [
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    ]
+
     title  = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     year   = models.PositiveSmallIntegerField()
@@ -21,7 +29,7 @@ class Book(models.Model):
     copiesSold=models.PositiveSmallIntegerField()
     price  = models.IntegerField()
     publisher = models.CharField(max_length=200, null=True)
-    #rating goes here but we need to see how that will work
+    rating = models.PositiveSmallIntegerField(choices=RATING_CHOICES)
     #with book rating and commenting
     
 
