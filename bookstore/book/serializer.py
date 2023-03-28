@@ -10,3 +10,9 @@ class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model=Book
         fields=('title', 'author', 'genre')
+
+class PublisherPatchingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Book
+        fields=('price',)
+    
