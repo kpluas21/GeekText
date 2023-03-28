@@ -12,7 +12,9 @@ class GenreSerializer(serializers.ModelSerializer):
         fields=('title', 'author', 'genre')
 
 class PublisherPatchingSerializer(serializers.ModelSerializer):
+    price = serializers.IntegerField(read_only=False)
+
     class Meta:
         model=Book
-        fields=('price',)
+        fields=('title', 'author', 'publisher', 'price',)
     

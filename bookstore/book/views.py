@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import generics
+from rest_framework import generics, status
 from .models import Book
 from .forms import *
 from .serializer import BookSerializer, GenreSerializer, PublisherPatchingSerializer
@@ -35,12 +35,6 @@ def postBookByGenre(request, genreSearch):
     serializer = GenreSerializer(book, many=True)
     return Response(serializer.data)
 
-@api_view(['PATCH'])
-def updateBookPricesByPublisher(request, publisherSearch, percent):
-    book = Book.objects.filter(publisher = publisherSearch)
-    serializer = PublisherPatchingSerializer(book, data=request.data ,partial=True)
-    return Response(serializer.data)
-
 class UpdatePriceByPublisher(generics.UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = PublisherPatchingSerializer
@@ -51,7 +45,7 @@ class UpdatePriceByPublisher(generics.UpdateAPIView):
         price = kwargs['price']
         queryset.update(price=price)
         return Response(status=status.HTTP_200_OK)
-
+    
 # def addbook(request):
 #     form=createBookForm()
 #     if request.method=='POST':
