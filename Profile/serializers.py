@@ -1,14 +1,24 @@
 from rest_framework import serializers
 from .models import Profile, CreditCard
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ['username', 'password', 'name', 'email', 'address']
-
 
 class CreditCardSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = CreditCard
-        fields = ('user', 'card_number', 'exp_date', 'cvv')
+        fields = ('__all__')
 
+class ProfileSerializer(serializers.ModelSerializer):
+    user = CreditCardSerializer(read_only = True, many = True)
+
+    class Meta:
+        model = Profile
+        fields = ('__all__')
+
+        
+
+
+
+    
+
+  
