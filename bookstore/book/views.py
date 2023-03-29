@@ -59,6 +59,10 @@ class ResetPricing(generics.UpdateAPIView):
             book.price = 50
             book.save()
         return Response(status=status.HTTP_200_OK)
+
+#Given a rating, return the books equal to or greater than said rating
+# @api_view(['GET'])
+# def sortByRating(request)
     
 # def addbook(request):
 #     form=createBookForm()
