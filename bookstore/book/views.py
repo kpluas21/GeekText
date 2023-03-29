@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import generics, status
 from .models import Book
 from .forms import *
-from .serializer import BookSerializer, GenreSerializer, PublisherPatchingSerializer
+from .serializer import BookSerializer, GenreSerializer, PublisherPatchingSerializer, PriceResetSerializer
 from django.http import HttpResponse
 
 
@@ -42,8 +42,22 @@ class UpdatePriceByPublisher(generics.UpdateAPIView):
     
     def partial_update(self, request, *args, **kwargs):
         queryset = self.get_queryset().filter(publisher=kwargs['publisher'])
-        price = kwargs['price']
-        queryset.update(price=price)
+        percent = kwargs['percent']
+        for book in queryset:
+            book.price *= (1 - percent / 100)
+            book.save()
+        return Response(status=status.HTTP_200_OK)
+
+#For testing purposes, resets price for all books to 50
+class ResetPricing(generics.UpdateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = PriceResetSerializer
+    
+    def partial_update(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        for book in queryset:
+            book.price = 50
+            book.save()
         return Response(status=status.HTTP_200_OK)
     
 # def addbook(request):

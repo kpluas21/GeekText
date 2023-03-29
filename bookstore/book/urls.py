@@ -9,7 +9,8 @@ urlpatterns = [
     path('post/', views.postBook),
     path('bestsellers/', views.postTopSellers),
     path('searchbygenre/<str:genreSearch>', views.postBookByGenre),
-    path('updatepricing/<str:publisher>/<int:price>/', views.UpdatePriceByPublisher.as_view()),
+    path('updatepricing/<str:publisher>/<int:percent>/', views.UpdatePriceByPublisher.as_view()),
+    path('resetpricing/', views.ResetPricing.as_view()),
     # path('addbook/', views.addbook, name='addbook')
 
 ]
