@@ -4,16 +4,17 @@ from rest_framework.decorators import api_view
 from rest_framework import generics, status
 from .models import Book
 from .forms import *
-from .serializer import BookSerializer, GenreSerializer, PublisherPatchingSerializer, PriceResetSerializer
+from .serializer import BookSerializer, GenreSerializer, PublisherPatchingSerializer, PriceResetSerializer, RatingSerializer
 from django.http import HttpResponse
 
-
+#Default view, shows all the books in the DB and their fields
 @api_view(['GET'])
 def getBook(request):
     book = Book.objects.all()
     serializer = BookSerializer(book, many=True)
     return Response(serializer.data)
 
+#Post method for adding books to the DB
 @api_view(['POST'])
 def postBook(request):
     serializer = BookSerializer(data=request.data)
@@ -61,18 +62,11 @@ class ResetPricing(generics.UpdateAPIView):
         return Response(status=status.HTTP_200_OK)
 
 #Given a rating, return the books equal to or greater than said rating
-# @api_view(['GET'])
-# def sortByRating(request)
-    
-# def addbook(request):
-#     form=createBookForm()
-#     if request.method=='POST':
-#         form=createBookForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#         return redirect('/')
-    
-#     context={'form':form}
-#     return render(request, 'book/addbook.html',context)
+@api_view(['GET'])
+def sortByRating(request, ratingSearch):
+    book = Book.objects.filter(rating__gte=ratingSearch)
+    serializer = RatingSerializer(book, many=True)
+    return Response(serializer.data)
+
 
 # Create your views here.
