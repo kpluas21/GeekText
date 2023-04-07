@@ -26,3 +26,10 @@ Make sure you have python , pip , and django already installed. I won't go over 
 
     The idea behind creating different apps is to separate the logic between several different unrelated applications. Book Browsing and sorting
     shouldn't be with the logic behind a Shopping cart, etc.
+
+#### Testing your feature
+Use Curl to test your feature. Again, teaching curl is outside the scope of this readme, but here is a quick example on using curl to post a discount
+    based on the publisher of the book
+    ```
+    ➜  ~ curl -X PATCH http://localhost:8000/updatepricing/Owl%20Books/50/
+    ```
